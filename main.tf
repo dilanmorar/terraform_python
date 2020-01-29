@@ -81,7 +81,7 @@ resource "aws_instance" "app_instance"{
   vpc_security_group_ids = [aws_security_group.app_security_dm.id]
   instance_type = "t2.micro"
   associate_public_ip_address = true
-  key_name = "dilan-morar-eng48"
+  key_name = var.key_name
   user_data = data.template_file.app_init.rendered
   tags = {
     Name = "${var.Name}-python"
